@@ -1,0 +1,137 @@
+import {StyleSheet} from 'react-native';
+
+export const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#000',
+    padding: 20,
+  },
+  gameHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 40,
+    paddingBottom: 8,
+    gap: 10,
+  },
+  gameHeaderText: {
+    fontFamily: 'Play-Bold',
+    fontSize: 20,
+    color: '#D1CBD8',
+  },
+  rulesContainer: {
+    marginVertical: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    borderRadius: 8,
+    backgroundColor: '#261D37',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  rulesContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+  },
+  rulesText: {
+    fontFamily: 'Play-Regular',
+    fontSize: 20,
+    color: '#D1CBD8',
+  },
+  instructionsText: {
+    fontFamily: 'Play-Bold',
+    fontSize: 20,
+    color: '#D1CBD8',
+    paddingVertical: 18,
+  },
+  preferencesContainer: {
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    backgroundColor: '#261D37',
+    paddingVertical: 30,
+  },
+  preferenceItem: {
+    gap: 10,
+    paddingBottom: 25,
+  },
+  preferenceLabel: {
+    fontFamily: 'Play-Bold',
+    fontSize: 16,
+    color: '#D1CBD8',
+  },
+  preferenceSelector: {
+    padding: 12,
+    borderRadius: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderWidth: 1,
+    borderColor: '#D1CBD8',
+  },
+  preferenceSelectorText: {
+    fontFamily: 'Play-Regular',
+    fontSize: 16,
+    color: '#D1CBD8',
+  },
+  goButton: {
+    padding: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 8,
+    marginTop: 5,
+  },
+  goButtonText: {
+    fontFamily: 'Play-Bold',
+    fontSize: 16,
+  },
+  expandIcon: {
+    padding: 8,
+  },
+  expandedContent: {
+    paddingHorizontal: 20,
+    paddingVertical: 5,
+    paddingBottom: 20,
+    backgroundColor: '#261D37',
+    marginTop: -15,
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
+  },
+  expandedText: {
+    paddingTop: 10,
+    paddingBottom: 20,
+    fontFamily: 'Play-Regular',
+    fontSize: 15,
+    color: '#D1CBD8',
+  },
+  expandedBoldText: {
+    paddingBottom: 10,
+    fontFamily: 'Play-Bold',
+    fontSize: 15,
+    color: '#D1CBD8',
+  },
+  soccerAidContainer: {
+    marginVertical: 10,
+    backgroundColor: '#FFC1071F',
+    paddingHorizontal: 13,
+    paddingVertical: 5,
+    borderRadius: 8,
+    marginRight: 110,
+  },
+  soccerAidText: {
+    fontFamily: 'Play-Regular',
+    fontSize: 14,
+    color: '#FFC107',
+  },
+  drawContainer: {
+    backgroundColor: '#FFC1071F',
+    borderRadius: 8,
+    paddingHorizontal: 13,
+    paddingVertical: 5,
+    marginTop: 5,
+  },
+  drawText: {
+    fontFamily: 'Play-Regular',
+    fontSize: 14,
+    color: '#FFC107',
+  },
+});
