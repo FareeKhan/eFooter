@@ -102,9 +102,7 @@ const Chat = () => {
   const ChatItem = ({item}) => (
     <TouchableOpacity
       onPress={() =>
-        navigation.navigate('Chat', {
-          screen: 'IndividualChat',
-        })
+        navigation.navigate('IndividualChat')
       }
       activeOpacity={0.8}
       style={styles.chatmainContainer}>
@@ -183,10 +181,7 @@ const Chat = () => {
         </View>
         <TouchableOpacity
          onPress={() =>
-          navigation.navigate('Chat', {
-            screen: 'GlobalChat',
-          })
-        }
+          navigation.navigate('GlobalChat')}
           activeOpacity={0.8}
           style={styles.globalChatBtnContainer}>
           <Icons.GlobalChatIcon />

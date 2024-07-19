@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
     padding: 20,
+    paddingBottom:100
   },
   contactUsHeader: {
     flexDirection: 'row',

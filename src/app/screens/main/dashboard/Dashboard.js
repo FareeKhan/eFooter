@@ -78,7 +78,7 @@ const Dashboard = () => {
       bgColor: '#FFC1071F',
       borderColor: '#FFC1077A',
       title: 'Added In room',
-      description: 'You have been added to the play room by Sam.',
+      description: `You have been added to the play${'\n'}room by Sam.`,
       time: '12 hours ago',
     },
     {
@@ -87,7 +87,7 @@ const Dashboard = () => {
       bgColor: '#FFC1071F',
       borderColor: '#FFC1077A',
       title: 'Added In room',
-      description: 'You have been added to the play room by Sam.',
+      description: `You have been added to the play${'\n'}room by Sam.`,
       time: '12 hours ago',
     },
     {
@@ -114,7 +114,7 @@ const Dashboard = () => {
             />
           )}
         </View>
-        <View style={styles.timelineTextContainer}>
+        <View style={[styles.timelineTextContainer]}>
           <Text style={styles.timelineTitle}>{item.title}</Text>
           <Text style={styles.timelineDescription}>{item.description}</Text>
           <Text style={styles.timelineTime}>{item.time}</Text>

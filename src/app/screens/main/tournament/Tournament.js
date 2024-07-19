@@ -17,7 +17,9 @@ import {styles} from './Tournament.style';
 
 const Tournament = () => {
   const [isOpened, setisOpened] = useState(false);
-  const navigation = useNavigation();
+  const [selectedDevice, setSelectedDevice] = useState(null);
+  const [selectedAvailabilityDuration, setSelectedAvailabilityDuration] =
+    useState(null);
 
   const tournaments = [
     {
@@ -116,9 +118,18 @@ const Tournament = () => {
         <FlatList
           data={deviceData}
           renderItem={({item}) => (
-            <View style={styles.deviceBox}>
+            <TouchableOpacity
+              onPress={() => setSelectedDevice(item.deviceName)}
+              activeOpacity={0.8}
+              style={[
+                styles.deviceBox,
+                {
+                  backgroundColor:
+                    selectedDevice === item.deviceName && '#4A00E8',
+                },
+              ]}>
               <Text style={styles.deviceBoxText}>{item.deviceName}</Text>
-            </View>
+            </TouchableOpacity>
           )}
           numColumns={3}
           columnWrapperStyle={{gap: 10, paddingTop: 15}}
@@ -129,16 +140,28 @@ const Tournament = () => {
         <FlatList
           data={availabilityDurations}
           renderItem={({item}) => (
-            <View style={styles.availabilityBox}>
+            <TouchableOpacity
+              onPress={() => setSelectedAvailabilityDuration(item.duration)}
+              activeOpacity={0.8}
+              style={[
+                styles.availabilityBox,
+                {
+                  backgroundColor:
+                    selectedAvailabilityDuration === item.duration && '#4A00E8',
+                },
+              ]}>
               <Text style={styles.availabilityBoxText}>{item.duration}</Text>
-            </View>
+            </TouchableOpacity>
           )}
           numColumns={5}
           columnWrapperStyle={{gap: 15, paddingTop: 15}}
         />
       </View>
       <View style={styles.btnsView}>
-        <TouchableOpacity activeOpacity={0.8} style={styles.cancelBtn}>
+        <TouchableOpacity
+          onPress={() => setisOpened(!isOpened)}
+          activeOpacity={0.8}
+          style={styles.cancelBtn}>
           <Text style={styles.cancelBtnText}>Cancel</Text>
         </TouchableOpacity>
         <TouchableOpacity activeOpacity={0.8} style={styles.applyBtn}>

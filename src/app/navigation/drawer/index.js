@@ -1,17 +1,15 @@
-import React, {useState} from 'react';
-import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
-import {
-  MyMatchesScreen,
-  MyProfileScreen,
-  ContactUsScreen,
-  HowToPlayScreen,
-  NotificationScreen,
-} from '../../screens';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {useNavigation,DrawerActions} from '@react-navigation/native';
+import React, { useState } from 'react';
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { useNavigation, DrawerActions } from '@react-navigation/native';
 import BottomTabNavigation from '../bottomTab';
-import ChatNavigator from '../chat';
 import Icons from '../../assets/icons';
+import { MyProfileStackNavigator } from '../profile';
+import { MyMatchesStackNavigator } from '../matches';
+import { MyContactStackNavigator } from '../contact';
+import { HowToPlayStackNavigator } from '../howToPlay';
+import { NotificationScreen } from '../../screens';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const DrawerContent = () => {
   const navigation = useNavigation();
@@ -33,9 +31,7 @@ const DrawerContent = () => {
           <Icons.AppIcon height={47} width={47} />
           <Text style={styles.appName}>E-Foot.NL</Text>
         </View>
-        <TouchableOpacity
-          onPress={handleCloseDrawer}
-          activeOpacity={0.8}>
+        <TouchableOpacity onPress={handleCloseDrawer} activeOpacity={0.8}>
           <Icons.CrossIcon />
         </TouchableOpacity>
       </View>
@@ -96,6 +92,27 @@ const DrawerContent = () => {
 
 const Drawer = createDrawerNavigator();
 
+export const StackNavigation = () => {
+  const Stack = createNativeStackNavigator();
+  return (
+    <Stack.Navigator initialRouteName={'Splash'}>
+    
+      <Stack.Screen
+        name={'BottomTabNavigation'}
+        component={BottomTabNavigation}
+        options={{headerShown:false}}
+      />
+
+<Stack.Screen
+        name={'Notification'}
+        component={NotificationScreen}
+        options={{headerShown:false}}
+      />
+     
+    </Stack.Navigator>
+  )
+}
+
 export const DrawerNavigation = () => {
   return (
     <Drawer.Navigator
@@ -106,52 +123,38 @@ export const DrawerNavigation = () => {
       }}
       drawerContent={() => <DrawerContent />}>
       <Drawer.Screen
-        name="MyMatches"
-        component={MyMatchesScreen}
+        name="StackNavigation"
+        component={StackNavigation}
         options={{
-          drawerItemStyle: {height: 0},
-        }}
-      />
-        <Drawer.Screen
-          name="MyProfile"
-          component={MyProfileScreen}
-          options={{
-            drawerItemStyle: {height: 0},
-          }}
-        />
-      <Drawer.Screen
-        name="ContactUs"
-        component={ContactUsScreen}
-        options={{
-          drawerItemStyle: {height: 0},
+          drawerItemStyle: { height: 0 },
         }}
       />
       <Drawer.Screen
-        name="HowToPlay"
-        component={HowToPlayScreen}
+        name="MyProfileStack"
+        component={MyProfileStackNavigator}
         options={{
-          drawerItemStyle: {height: 0},
+          drawerItemStyle: { height: 0 },
         }}
       />
       <Drawer.Screen
-        name="BottomTabNavigation"
-        component={BottomTabNavigation}
+        name="MyMatchesStack"
+        component={MyMatchesStackNavigator}
         options={{
-          drawerItemStyle: {height: 0},
+          drawerItemStyle: { height: 0 },
         }}
       />
       <Drawer.Screen
-        name="Chat"
-        component={ChatNavigator}
+        name="ContactUsStack"
+        component={MyContactStackNavigator}
         options={{
-          drawerItemStyle: {height: 0},
+          drawerItemStyle: { height: 0 },
         }}
       />
       <Drawer.Screen
-        name="Notification"
-        component={NotificationScreen}
+        name="HowToPlayStack"
+        component={HowToPlayStackNavigator}
         options={{
-          drawerItemStyle: {height: 0},
+          drawerItemStyle: { height: 0 },
         }}
       />
     </Drawer.Navigator>

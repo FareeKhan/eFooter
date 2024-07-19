@@ -141,6 +141,7 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     color: '#D1CBD8',
     width: '88%',
+    height:40
   },
   filterIconContainer: {
     alignItems: 'center',

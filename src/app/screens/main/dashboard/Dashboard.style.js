@@ -252,6 +252,7 @@ export const styles = StyleSheet.create({
   timelineIconContainer: {
     alignItems: 'center',
     gap: 6,
+    paddingBottom:6
   },
   timelineIcon: {
     height: 35,
@@ -273,13 +274,11 @@ export const styles = StyleSheet.create({
     fontFamily: 'Play-Bold',
     fontSize: 16,
     color: '#FFFFFF',
-    width: '72%',
   },
   timelineDescription: {
     fontFamily: 'Play-Regular',
     fontSize: 16,
     color: '#D1CBD8',
-    width: '72%',
   },
   timelineTime: {
     fontFamily: 'Play-Regular',

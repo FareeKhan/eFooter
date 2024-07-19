@@ -19,6 +19,8 @@ import {styles} from './Home.style';
 const Home = () => {
   const [isOpened, setisOpened] = useState(false);
   const [isToolTipOpen, setIsToolTipOpen] = useState(false);
+  const [selectedWinCategory, setSelectedWinCategory] = useState(null);
+  const [selectedAvailabilityDuration, setSelectedAvailabilityDuration] = useState(null);
 
   const users = [
     {
@@ -134,9 +136,18 @@ const Home = () => {
         <FlatList
           data={winCategories}
           renderItem={({item}) => (
-            <View style={styles.winCategoryBox}>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => setSelectedWinCategory(item.range)}
+              style={[
+                styles.winCategoryBox,
+                {
+                  backgroundColor:
+                    selectedWinCategory === item.range && '#4A00E8',
+                },
+              ]}>
               <Text style={styles.winCategoryBoxText}>{item.range}</Text>
-            </View>
+            </TouchableOpacity>
           )}
           numColumns={3}
           columnWrapperStyle={{gap: 10, paddingTop: 15}}
@@ -147,16 +158,28 @@ const Home = () => {
         <FlatList
           data={availabilityDurations}
           renderItem={({item}) => (
-            <View style={styles.availabilityBox}>
+            <TouchableOpacity
+              onPress={() => setSelectedAvailabilityDuration(item.duration)}
+              activeOpacity={0.8}
+              style={[
+                styles.availabilityBox,
+                {
+                  backgroundColor:
+                    selectedAvailabilityDuration === item.duration && '#4A00E8',
+                },
+              ]}>
               <Text style={styles.availabilityBoxText}>{item.duration}</Text>
-            </View>
+            </TouchableOpacity>
           )}
           numColumns={5}
           columnWrapperStyle={{gap: 15, paddingTop: 15}}
         />
       </View>
       <View style={styles.btnsView}>
-        <TouchableOpacity activeOpacity={0.8} style={styles.cancelBtn}>
+        <TouchableOpacity
+          onPress={() => setisOpened(!isOpened)}
+          activeOpacity={0.8}
+          style={styles.cancelBtn}>
           <Text style={styles.cancelBtnText}>Cancel</Text>
         </TouchableOpacity>
         <TouchableOpacity activeOpacity={0.8} style={styles.applyBtn}>

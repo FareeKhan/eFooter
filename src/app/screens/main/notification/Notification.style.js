@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
     padding: 20,
-    paddingBottom:120
   },
   notificationTitle: {
     fontFamily: 'Play-Bold',
@@ -22,12 +21,14 @@ export const styles = StyleSheet.create({
     gap: 5,
     paddingVertical: 1,
     width: '100%',
+    zIndex:-100
   },
   searchInput: {
     fontFamily: 'Play-Regular',
     fontSize: 18,
     color: '#D1CBD8',
     width: '88%',
+    height:40
   },
   notificationContainer: {
     backgroundColor: '#261D37',

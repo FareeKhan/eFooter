@@ -153,7 +153,7 @@ const ChallengeInvite = () => {
               <TouchableOpacity activeOpacity={0.8} style={styles.cancelBtn}>
                 <Text style={styles.cancelBtnText}>Cancel</Text>
               </TouchableOpacity>
-              <TouchableOpacity activeOpacity={0.8} style={styles.yesBtn}>
+              <TouchableOpacity onPress={()=>setModalVisible(false)} activeOpacity={0.8} style={styles.yesBtn}>
                 <Text style={styles.yesBtnText}>Yes, send it!</Text>
               </TouchableOpacity>
             </View>

@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Icons from '../assets/icons';
 
 const AppHeader = () => {
@@ -10,7 +10,7 @@ const AppHeader = () => {
   const [isLogoutModalVisible, setIsLogoutModalVisible] = useState(false);
 
   const handleLanguageSelectorPress = () => {
-    setIsLanguageSelectorOpen(true);
+    setIsLanguageSelectorOpen(!isLanguageSelectorOpen);
   };
 
   const handleLogoutModalPress = () => {
@@ -56,19 +56,20 @@ const AppHeader = () => {
         </View>
       </View>
       {isLanguageSelectorOpen && (
+        
         <View style={styles.languageSelector}>
-          <TouchableOpacity
-            onPress={() => handleLanguageOptionPress('nl')}
-            style={styles.languageOption}>
-            <Icons.FlagNL />
-            <Text style={styles.languageOptionText}>Dutch</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => handleLanguageOptionPress('en')}
-            style={[styles.languageOption, {paddingVertical: 8}]}>
-            <Icons.USFlag />
-            <Text style={styles.languageOptionText}>English</Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => handleLanguageOptionPress('nl')}
+              style={styles.languageOption}>
+              <Icons.FlagNL />
+              <Text style={styles.languageOptionText}>Dutch</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => handleLanguageOptionPress('en')}
+              style={[styles.languageOption, { paddingVertical: 8 }]}>
+              <Icons.USFlag />
+              <Text style={styles.languageOptionText}>English</Text>
+            </TouchableOpacity>
         </View>
       )}
       {isLogoutModalVisible && (
@@ -129,7 +130,8 @@ const styles = StyleSheet.create({
   languageSelector: {
     backgroundColor: '#261D37',
     position: 'absolute',
-    zIndex: 1,
+
+    zIndex: 100,
     borderRadius: 8,
     top: '75%',
     right: '15%',

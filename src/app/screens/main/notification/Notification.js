@@ -93,7 +93,7 @@ const Notification = () => {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView  showsVerticalScrollIndicator={false}>
         <AppHeader/>
         <Text style={styles.notificationTitle}>Notifications</Text>
         <View style={styles.searchInputContainer}>

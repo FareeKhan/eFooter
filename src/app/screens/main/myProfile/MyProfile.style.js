@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
     padding: 20,
+    paddingBottom:100,
   },
   myProfileHeader: {
     flexDirection: 'row',
@@ -34,6 +35,7 @@ export const styles = StyleSheet.create({
   userBadgeContainer: {
     paddingVertical: 15,
     alignItems: 'center',
+  
   },
   profileDetailsContainer: {
     position: 'absolute',
@@ -45,8 +47,8 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   profileImage: {
-    height: 50,
-    width: 50,
+    height:90,
+    width:90
   },
   userName: {
     fontFamily: 'Play-Regular',
@@ -69,6 +71,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    height:44
   },
   profileLink: {
     width: '95%',
@@ -163,6 +166,7 @@ export const styles = StyleSheet.create({
     fontFamily: 'Play-Regular',
     fontSize: 16,
     color: '#D1CBD8',
+    height:40
   },
   wlRankInput:{
     flexDirection: 'row',

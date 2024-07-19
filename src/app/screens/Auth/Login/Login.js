@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   ScrollView,
   View,
@@ -6,10 +6,10 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {useNavigation} from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 import Icons from '../../../assets/icons';
-import {styles} from './Login.style';
+import { styles } from './Login.style';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -18,8 +18,8 @@ const Login = () => {
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.backgroundTop}></View>
       <View style={styles.backgroundBottom}></View>
-      <View style={styles.loginContainer}>
-        <ScrollView showsVerticalScrollIndicator={false}>
+      <View style={[styles.loginContainer]}>
+        <ScrollView  contentContainerStyle={{flex:1}} showsVerticalScrollIndicator={false}>
           <View style={styles.contentContainer}>
             <View style={styles.header}>
               <View style={styles.appInfo}>
@@ -50,20 +50,20 @@ const Login = () => {
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    
+
                   },
                 ]}>
                 <TextInput
                   placeholder="**********"
                   placeholderTextColor={'#D1CBD8'}
-                  style={{color: '#FFFFFF',width:"90%"}}
+                  style={{ color: '#FFFFFF', width: "90%" }}
                   secureTextEntry={eye === true ? true : false}
                 />
                 <TouchableOpacity onPress={() => setEye(!eye)}>
                   {eye === true ? (
                     <Icons.eyeoffIcon width={20} height={20} />
                   ) : (
-                    <Icons.VisibilityIcon  />
+                    <Icons.VisibilityIcon />
                   )}
                 </TouchableOpacity>
               </View>
@@ -106,9 +106,11 @@ const Login = () => {
               </TouchableOpacity>
             </View>
           </View>
-          {/* <Text style={styles.bottomText}>
-            Play FIFA and WIN PRIZES - Play like a PRO 💙
-          </Text> */}
+          <View style={styles.bottomBox}>
+            <Text style={styles.bottomText}>
+              Play FIFA and WIN PRIZES - Play like a PRO 💙
+            </Text>
+          </View>
         </ScrollView>
       </View>
     </SafeAreaView>

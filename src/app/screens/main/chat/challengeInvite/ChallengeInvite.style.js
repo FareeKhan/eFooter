@@ -22,6 +22,7 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     color: '#D1CBD8',
     width: '88%',
+    height:50
   },
   iconContainer: {
     alignItems: 'center',

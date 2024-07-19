@@ -15,6 +15,7 @@ import AppHeader from '../../../components/AppHeader';
 import SelectModal from '../../../components/SelectModal';
 import Icons from '../../../assets/icons';
 import {styles} from './MyProfile.style';
+import CustomValueSelection from '../../../components/CustomValueSelection';
 
 const MyProfile = () => {
   const [eye, setEye] = useState([true,true,true]);
@@ -78,7 +79,7 @@ const MyProfile = () => {
   };
 
   return (
-    <SafeAreaView style={[styles.safeArea, {opacity: modalVisible ? 0.8 : 1}]}>
+    <SafeAreaView style={[styles.safeArea]}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <AppHeader/>
         <View style={styles.myProfileHeader}>
@@ -87,7 +88,7 @@ const MyProfile = () => {
         </View>
         <View>
           <View style={styles.userBadgeContainer}>
-            <Icons.UserBadge />
+            <Icons.UserBadge  width={220} height={280}/>
           </View>
           <View style={styles.profileDetailsContainer}>
             <Image
@@ -249,6 +250,9 @@ const MyProfile = () => {
                 <Icons.DownArrow />
               </TouchableOpacity>
             </View>
+
+
+
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>EA ID</Text>
               <TextInput
@@ -393,7 +397,7 @@ const MyProfile = () => {
                   {right: radioStates[1] ? '2%' : '7%'},
                 ]}></TouchableOpacity>
             </View>
-            <TouchableOpacity activeOpacity={0.8} style={styles.joinMatchBtn}>
+            <TouchableOpacity activeOpacity={0.5} style={styles.joinMatchBtn}>
               <Text style={styles.joinMatchBtnText}>Join Match</Text>
             </TouchableOpacity>
           </View>

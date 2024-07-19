@@ -1,10 +1,14 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import { SplashScreen} from '../../screens';
+import {
+  IndividualChatScreen,
+  SplashScreen,
+  GlobalChatScreen,
+} from '../../screens';
 import AuthNavigator from '../auth';
-import  {DrawerNavigation}  from '../drawer';
+import {DrawerNavigation} from '../drawer';
 
-export const Stack = createNativeStackNavigator(); 
+export const Stack = createNativeStackNavigator();
 
 export const commonHeaderOptions = {headerShown: false};
 
@@ -21,7 +25,17 @@ export default function AppNavigator() {
         component={AuthNavigator}
         options={commonHeaderOptions}
       />
-       <Stack.Screen
+      <Stack.Screen
+        name={'IndividualChat'}
+        component={IndividualChatScreen}
+        options={commonHeaderOptions}
+      />
+      <Stack.Screen
+        name={'GlobalChat'}
+        component={GlobalChatScreen}
+        options={commonHeaderOptions}
+      />
+      <Stack.Screen
         name={'Drawer'}
         component={DrawerNavigation}
         options={commonHeaderOptions}

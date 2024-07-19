@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Animated, Dimensions } from 'react-native';
 import Modal from 'react-native-modal';
 import icons from '../assets/icons';
+const {height,width} = Dimensions.get('screen')
 
 const SelectModal = ({
   visible,
@@ -13,7 +14,7 @@ const SelectModal = ({
   onSelect,
 }) => {
   const [selectedItem, setSelectedItem] = useState(null);
-  const renderItem = ({item}) => {
+  const renderItem = ({ item }) => {
     const isSelected = selectedItem === item;
 
     return (
@@ -24,7 +25,7 @@ const SelectModal = ({
         }}
         activeOpacity={0.8}
         style={[
-          {marginHorizontal: 30},
+          { marginHorizontal: 30 },
           isSelected && {
             backgroundColor: '#352A4B',
             borderWidth: 1,
@@ -40,27 +41,47 @@ const SelectModal = ({
   };
 
   return (
-    <Modal
-      style={styles.modalContainer}
+
+
+
+<View>
+
+<Modal
       visible={visible}
       onBackButtonPress={onBackButtonPress}
       onBackdropPress={onBackdropPress}>
-      <View style={styles.cardContainer}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>{title}</Text>
-          <TouchableOpacity onPress={onClose} activeOpacity={0.8}>
-            <icons.CrossIcon />
-          </TouchableOpacity>
+      <View style={{flex:1,alignItems:"center",justifyContent:"center",Top:100,marginHorizontal:-15}}>
+      {visible ? (
+        <Animated.View
+          style={{
+            backgroundColor: '#00000099',
+            position: 'absolute',
+            height: height * 100,
+            width: width,
+            top: 0,
+          }}></Animated.View>
+      ) : (
+        <></>
+      )}
+        <View style={styles.cardContainer}>
+          <View style={styles.header}>
+            <Text style={styles.headerText}>{title}</Text>
+            <TouchableOpacity onPress={onClose} activeOpacity={0.8}>
+              <icons.CrossIcon />
+            </TouchableOpacity>
+          </View>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={dataList}
+            renderItem={renderItem}
+            keyExtractor={index => index.toString()}
+            contentContainerStyle={{ paddingTop: 10 }}
+          />
         </View>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={dataList}
-          renderItem={renderItem}
-          keyExtractor={index => index.toString()}
-          contentContainerStyle={{paddingTop: 10}}
-        />
       </View>
     </Modal>
+</View>
+
   );
 };
 
@@ -78,7 +99,7 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     borderWidth: 2,
     borderColor: '#4A00E8',
-    width: '100%',
+    width: '90%',
   },
   header: {
     flexDirection: 'row',

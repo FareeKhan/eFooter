@@ -13,77 +13,27 @@ import { useNavigation } from '@react-navigation/native';
 import SelectModal from '../../../components/SelectModal';
 import Icons from '../../../assets/icons';
 import { styles } from './Register.style';
+import CustomValueSelection from '../../../components/CustomValueSelection';
+import { CountryList, wlRankData } from '../../../constant/data';
 
 const Register = () => {
   const [radio, setRadio] = useState(true);
   const [eye, setEye] = useState(true);
-  const [modalVisible, setModalVisible] = useState(false);
-  const [selectModalProps, setSelectModalProps] = useState({
-    title: '',
-    dataList: [],
-  });
+
+  const [country, setCountry] = useState('Select Country');
+  const [wlRank, setWlRank] = useState('WL Rank');
+
+
+
   const navigation = useNavigation();
 
-  const handleCountrySelect = () => {
-    setSelectModalProps({
-      title: 'Country',
-      dataList: [
-        'Austria',
-        'Belgium',
-        'Bulgaria',
-        'Croatia',
-        'Cyprus',
-        'Czech Republic',
-        'Denmark',
-        'Finland',
-        'France',
-        'Germany',
-        'Greece',
-        'Hungary',
-        'Iceland',
-        'Ireland',
-        'Italy',
-        'Luxembourg',
-        'Malta',
-        'Netherlands',
-        'Norway',
-        'Poland',
-        'Portugal',
-        'Romania',
-        'Slovakia',
-        'Slovenia',
-        'Spain',
-        'Sweden',
-        'Switzerland',
-        'Türkiye',
-        'Ukraine',
-        'United Kingdom',
-      ],
-    });
-    setModalVisible(true);
-  };
-
-  const handleWLRankSelect = () => {
-    setSelectModalProps({
-      title: 'WL Rank',
-      dataList: [
-        'NO WINS',
-        '0 - 5 WINS',
-        '5 - 10 WINS',
-        '10 - 15 WINS',
-        '15+ WINS',
-      ],
-    });
-    setModalVisible(true);
-  };
-
   return (
-    <SafeAreaView style={[styles.safeArea, { opacity: modalVisible ? 0.4 : 1 }]}>
+    <SafeAreaView style={[styles.safeArea,]}>
       <View style={styles.backgroundTop}></View>
       <View style={styles.backgroundBottom}></View>
       <View style={styles.registerContainer}>
-          <KeyboardAvoidingView style={{flexGrow:1}} behavior={Platform.OS == 'ios' ? 'padding' :"height"} keyboardVerticalOffset={Platform.OS  == 'ios'?80:0} >
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <KeyboardAvoidingView style={{ flexGrow: 1 }} behavior={Platform.OS == 'ios' ? 'padding' : "height"} keyboardVerticalOffset={Platform.OS == 'ios' ? 80 : 0} >
+          <ScrollView showsVerticalScrollIndicator={false}>
 
             <View style={styles.contentContainer}>
               <View style={styles.header}>
@@ -180,26 +130,26 @@ const Register = () => {
                   placeholderTextColor={'#D1CBD8'}
                 />
               </View>
-              <View style={styles.inputContainer}>
-                <Text style={styles.label}>WL Rank</Text>
-                <TouchableOpacity
-                  onPress={handleWLRankSelect}
-                  activeOpacity={0.8}
-                  style={styles.selectContainer}>
-                  <Text style={styles.selectLabel}>No Score</Text>
-                  <Icons.DownArrow />
-                </TouchableOpacity>
-              </View>
-              <View style={styles.inputContainer}>
-                <Text style={styles.label}>Country</Text>
-                <TouchableOpacity
-                  onPress={handleCountrySelect}
-                  activeOpacity={0.8}
-                  style={styles.selectContainer}>
-                  <Text style={styles.selectLabel}>Select country</Text>
-                  <Icons.DownArrow />
-                </TouchableOpacity>
-              </View>
+           
+
+
+              <CustomValueSelection
+                data={wlRankData}
+                title={'WL Rank'}
+                value={wlRank}
+                setValue={setWlRank}
+
+
+              />
+
+              <CustomValueSelection
+                data={CountryList}
+                title={'Country'}
+                value={country}
+                setValue={setCountry}
+
+
+              />
               <View style={styles.radioRow}>
                 <Text style={styles.radioLabel}>Pro Player?</Text>
                 <TouchableOpacity
@@ -241,17 +191,10 @@ const Register = () => {
               </View>
             </View>
 
-        </ScrollView>
-          </KeyboardAvoidingView>
+          </ScrollView>
+        </KeyboardAvoidingView>
       </View>
-      <SelectModal
-        visible={modalVisible}
-        onClose={() => setModalVisible(false)}
-        onBackButtonPress={() => setModalVisible(false)}
-        onBackdropPress={() => setModalVisible(false)}
-        title={selectModalProps.title}
-        dataList={selectModalProps.dataList}
-      />
+   
     </SafeAreaView>
   );
 };

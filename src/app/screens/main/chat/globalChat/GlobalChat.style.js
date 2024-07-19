@@ -37,12 +37,14 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
+
   },
   messageTextInput: {
     fontFamily: 'Play-Regular',
     fontSize: 15,
     color: '#fff',
     width: '70%',
+    height:40,
   },
   messageInputRight: {
     flexDirection: 'row',

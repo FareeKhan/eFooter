@@ -3,8 +3,6 @@ import {
   ChatScreen,
   ChallengeInviteScreen,
   ChallengeRequestScreen,
-  IndividualChatScreen,
-  GlobalChatScreen,
 } from '../../screens';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -16,16 +14,6 @@ const ChatNavigator = ({}) => (
       <Chat.Screen
         name={'ChatScreen'}
         component={ChatScreen}
-        options={{headerShown: false}}
-      />
-      <Chat.Screen
-        name={'IndividualChat'}
-        component={IndividualChatScreen}
-        options={{headerShown: false}}
-      />
-      <Chat.Screen
-        name={'GlobalChat'}
-        component={GlobalChatScreen}
         options={{headerShown: false}}
       />
       <Chat.Screen

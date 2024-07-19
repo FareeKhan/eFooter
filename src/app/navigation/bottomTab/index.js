@@ -8,7 +8,11 @@ import {
   DashboardScreen,
   GameScreen,
   TournamentScreen,
-  // ChatScreen,
+  MyProfileScreen,
+  MyMatchesScreen,
+  ContactUsScreen,
+  HowToPlayScreen,
+  NotificationScreen
 } from '../../screens';
 import ChatNavigator from '../chat';
 
@@ -153,6 +157,67 @@ const BottomTabNavigation = () => {
             ),
         }}
       />
+       
+       <Tab.Screen
+        name="MyMatches"
+        component={MyMatchesScreen}
+        listeners={() => ({
+          tabPress: (e) => {
+            e.preventDefault();
+          },
+        })}
+        options={{
+          tabBarButton: () => null, 
+        }}
+      />
+      <Tab.Screen
+        name="MyProfile"
+        component={MyProfileScreen}
+        listeners={() => ({
+          tabPress: (e) => {
+            e.preventDefault(); 
+          },
+        })}
+        options={{
+          tabBarButton: () => null,
+        }}
+      />
+       <Tab.Screen
+        name="ContactUs"
+        component={ContactUsScreen}
+        listeners={() => ({
+          tabPress: (e) => {
+            e.preventDefault(); 
+          },
+        })}
+        options={{
+          tabBarButton: () => null, 
+        }}
+      />
+       <Tab.Screen
+        name="HowToPlay"
+        component={HowToPlayScreen}
+        listeners={() => ({
+          tabPress: (e) => {
+            e.preventDefault();
+          },
+        })}
+        options={{
+          tabBarButton: () => null, 
+        }}
+      />
+       {/* <Tab.Screen
+        name="Notification"
+        component={NotificationScreen}
+        listeners={() => ({
+          tabPress: (e) => {
+            e.preventDefault();
+          },
+        })}
+        options={{
+          tabBarButton: () => null, 
+        }}
+      /> */}
     </Tab.Navigator>
   );
 };

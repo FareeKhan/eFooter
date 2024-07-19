@@ -121,12 +121,17 @@ export const styles = StyleSheet.create({
       fontSize: 14,
       fontFamily:'Lato-Black'
     },
+    bottomBox:{
+     flex: 1,
+      bottom:0,
+      justifyContent:"flex-end",
+      alignItems:"center",
+      marginBottom:30 
+    },
     bottomText: {
       color: '#FFFFFF',
-      fontSize: 14,
-      textAlign: 'center',
-      fontFamily:'Play-Regular',
-      marginTop:90,
-      marginBottom:30
+      fontFamily:'Play-Bold',
+
+
     },
   });
