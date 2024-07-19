@@ -28,11 +28,12 @@ const Register = () => {
   const navigation = useNavigation();
 
   return (
+    <KeyboardAvoidingView style={{flex:1}} behavior={Platform.OS == 'ios' ? 'padding' : 'height'}>
+
     <SafeAreaView style={[styles.safeArea,]}>
       <View style={styles.backgroundTop}></View>
       <View style={styles.backgroundBottom}></View>
       <View style={styles.registerContainer}>
-        <KeyboardAvoidingView style={{ flexGrow: 1 }} behavior={Platform.OS == 'ios' ? 'padding' : "height"} keyboardVerticalOffset={Platform.OS == 'ios' ? 80 : 0} >
           <ScrollView showsVerticalScrollIndicator={false}>
 
             <View style={styles.contentContainer}>
@@ -78,7 +79,7 @@ const Register = () => {
                   <TextInput
                     placeholder="**********"
                     placeholderTextColor={'#D1CBD8'}
-                    style={{ color: '#FFFFFF' }}
+                    style={{ color: '#FFFFFF',width:"80%" }}
                     secureTextEntry={eye === true ? true : false}
                   />
                   <TouchableOpacity onPress={() => setEye(!eye)}>
@@ -192,10 +193,11 @@ const Register = () => {
             </View>
 
           </ScrollView>
-        </KeyboardAvoidingView>
       </View>
    
     </SafeAreaView>
+    </KeyboardAvoidingView>
+
   );
 };
 
