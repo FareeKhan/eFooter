@@ -53,14 +53,18 @@ const MyProfile = () => {
     UIManager.setLayoutAnimationEnabledExperimental(true);
   }
 
+
   const toggleExpand = index => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setExpandedSections(prevState => {
-      const newExpandedSections = [...prevState];
-      newExpandedSections[index] = !newExpandedSections[index];
+      if (!Array.isArray(prevState)) {
+        prevState = [false, false, false, false]; 
+      }
+      const newExpandedSections = prevState.map((section, idx) => idx === index ? !section : false);
       return newExpandedSections;
     });
   };
+  
 
   const toggleRadio = index => {
     setRadioStates(prevState => {

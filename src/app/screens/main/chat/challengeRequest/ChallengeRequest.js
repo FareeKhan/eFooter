@@ -134,6 +134,7 @@ const ChallengeRequest = () => {
             />
           </View>
           <TouchableOpacity
+          onPress={()=>navigation.replace('ChatScreen')}
             activeOpacity={0.8}
             style={[styles.iconContainer, {backgroundColor: '#4A00E8'}]}>
             <Icons.UserIcon />

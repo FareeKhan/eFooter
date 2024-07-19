@@ -11,10 +11,15 @@ const AppHeader = () => {
 
   const handleLanguageSelectorPress = () => {
     setIsLanguageSelectorOpen(!isLanguageSelectorOpen);
+    setIsLogoutModalVisible(false);
+
   };
 
   const handleLogoutModalPress = () => {
     setIsLogoutModalVisible(!isLogoutModalVisible);
+    setIsLanguageSelectorOpen(false);
+
+
   };
 
   const handleLanguageOptionPress = language => {
@@ -56,7 +61,6 @@ const AppHeader = () => {
         </View>
       </View>
       {isLanguageSelectorOpen && (
-        
         <View style={styles.languageSelector}>
             <TouchableOpacity
               onPress={() => handleLanguageOptionPress('nl')}

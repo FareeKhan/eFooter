@@ -124,6 +124,7 @@ const ChallengeInvite = () => {
             <Icons.UserIcon />
           </TouchableOpacity>
           <TouchableOpacity
+          onPress={()=>navigation.replace('ChatScreen')}
             activeOpacity={0.8}
             style={[styles.iconContainer, {backgroundColor: '#4A00E8'}]}>
             <Icons.ChatPlusIcon />

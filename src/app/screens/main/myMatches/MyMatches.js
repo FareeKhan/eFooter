@@ -15,8 +15,11 @@ import Icons from '../../../assets/icons';
 import {styles} from './MyMatches.style';
 import AppHeader from '../../../components/AppHeader';
 
+import ImagePicker from 'react-native-image-crop-picker';
+
 const MyMatches = () => {
   const [currentStatus, setCurrentStatus] = useState('Pending');
+  const [image, setImage] = useState('');
 
   const [proofModal, setProofModal] = useState(false);
 
@@ -306,9 +309,21 @@ const MyMatches = () => {
     },
   ];
 
+
+
+  const takeImageFromGallery = () =>{
+    ImagePicker.openPicker({
+      width: 300,
+      height: 400,
+      cropping: true
+    }).then(image => {
+      setImage(image.path)
+      console.log(image);
+    });
+  }
   return (
     <SafeAreaView style={styles.safeArea}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView style={{flex:1}} contentContainerStyle={{flexGrow:1,paddingBottom:100}} showsVerticalScrollIndicator={false}>
         <AppHeader />
         <View style={styles.matchesHeader}>
           <TouchableOpacity activeOpacity={0.8} style={{top: 2}}>
@@ -360,7 +375,21 @@ const MyMatches = () => {
                 <Icons.CrossIcon />
               </TouchableOpacity>
             </View>
-            <TouchableOpacity activeOpacity={0.8} style={styles.uploadBtn}>
+
+           {
+            image &&
+            <View>
+              <Image source={{uri:image}} style={{height:400,width:300,marginTop:20}} borderRadius={10} />
+              <TouchableOpacity
+              style={styles.proofImgCrossIcon}
+                activeOpacity={0.8}
+                onPress={() => setImage('')}>
+                <Icons.CrossIcon />
+              </TouchableOpacity>
+            </View>
+          } 
+            
+            <TouchableOpacity onPress={takeImageFromGallery} activeOpacity={0.8} style={styles.uploadBtn}>
               <Text style={styles.uploadBtnText}>Upload Proof</Text>
             </TouchableOpacity>
             <View style={styles.proofNoteContainer}>

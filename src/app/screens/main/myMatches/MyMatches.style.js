@@ -1,11 +1,10 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: '#000',
     padding: 20,
-    paddingBottom:100
   },
   matchesHeader: {
     flexDirection: 'row',
@@ -266,7 +265,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#FF48421F',
     borderRadius: 8,
     padding: 7,
-    marginTop:20
+    marginTop: 20
   },
   scoreNoteTextBold: {
     fontFamily: 'Play-Bold',
@@ -294,4 +293,13 @@ export const styles = StyleSheet.create({
     borderColor: '#D1CBD8',
     borderRadius: 8,
   },
+
+  proofImgCrossIcon: {
+    position: "absolute",
+    top: 40,
+    right: 10,
+    backgroundColor: "#fff",
+    borderRadius: 50,
+    padding: 5
+  }
 });

@@ -206,18 +206,7 @@ const BottomTabNavigation = () => {
           tabBarButton: () => null, 
         }}
       />
-       {/* <Tab.Screen
-        name="Notification"
-        component={NotificationScreen}
-        listeners={() => ({
-          tabPress: (e) => {
-            e.preventDefault();
-          },
-        })}
-        options={{
-          tabBarButton: () => null, 
-        }}
-      /> */}
+     
     </Tab.Navigator>
   );
 };
